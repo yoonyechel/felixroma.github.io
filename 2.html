@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>김민수 - 자기소개서</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #3498db;
+            --bg-color: #f8f9fa;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: 'Pretendard', 'Malgun Gothic', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-top: 10px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin-top: 0;
+        }
+
+        h3 {
+            color: var(--secondary-color);
+            margin-top: 1.5rem;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        blockquote {
+            border-left: 4px solid var(--accent-color);
+            margin: 1.5rem 0;
+            padding: 1rem 1.5rem;
+            background-color: #f1f8ff;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--primary-color);
+        }
+
+        .citation {
+            font-size: 0.85em;
+            color: #7f8c8d;
+            vertical-align: super;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>김민수</h1>
+        <p>Software Developer Portfolio</p>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>지원 동기 및 포부</h2>
+            <p>안녕하세요. 소프트웨어 개발자로서 사용자에게 가치 있는 서비스를 제공하고 싶은 김민수입니다. <span class="citation">[cite: 1]</span></p>
+            <p>저는 대학에서 컴퓨터공학을 전공하며 프로그래밍의 기초를 다졌고, 졸업 후 2년간 스타트업에서 웹 개발 업무를 담당했습니다. <span class="citation">[cite: 2]</span> 빠르게 변화하는 IT 업계에서 새로운 기술을 학습하고 적용하는 것에 큰 흥미를 느끼며, 특히 사용자 경험을 개선하는 기술적 솔루션을 찾는 것을 좋아합니다. <span class="citation">[cite: 3]</span> 귀사는 혁신적인 기술력과 우수한 개발 문화로 업계에서 인정받고 있으며, 이러한 환경에서 저의 기술적 역량을 더욱 발전시키고 의미 있는 프로젝트에 기여하고 싶습니다. <span class="citation">[cite: 4]</span></p>
+        </div>
+
+        <div class="section">
+            <h2>성격의 장단점</h2>
+            <h3>장점</h3>
+            <ul>
+                <li>꾸준한 학습 의지: 새로운 기술 트렌드에 관심이 많아 개인 시간을 활용해 온라인 강의를 수강하고 사이드 프로젝트를 진행합니다. <span class="citation">[cite: 5]</span></li>
+                <li>협업과 소통: 팀 프로젝트에서 다른 개발자, 디자이너, 기획자와 원활히 소통하며 공동의 목표를 달성하는 것을 중요하게 생각합니다. <span class="citation">[cite: 6]</span></li>
+                <li>문제 해결 지향적: 복잡한 버그나 기술적 이슈에 직면했을 때 포기하지 않고 다양한 접근 방법을 시도하여 해결책을 찾습니다. <span class="citation">[cite: 7]</span></li>
+            </ul>
+            <h3>단점</h3>
+            <ul>
+                <li>완벽주의 성향: 때로는 코드의 완성도에 지나치게 집착하여 일정에 영향을 줄 수 있습니다. <span class="citation">[cite: 8]</span> 이를 개선하기 위해 우선순위를 명확히 하고 적정 수준의 완성도를 목표로 하는 연습을 하고 있습니다. <span class="citation">[cite: 9]</span></li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>생활신조</h2>
+            <blockquote>"기술은 사람을 위해 존재한다"</blockquote>
+            <p>개발자로서 항상 사용자의 관점에서 생각하려 노력합니다. 아무리 기술적으로 뛰어난 코드라도 실제 사용자에게 도움이 되지 않는다면 의미가 없다고 생각합니다. <span class="citation">[cite: 10]</span> 사용자가 더 편리하고 효율적으로 업무를 처리할 수 있도록 돕는 것이 개발자의 사명이라고 믿습니다. <span class="citation">[cite: 11]</span></p>
+        </div>
+
+        <div class="section">
+            <h2>학창시절 경험 및 특이사항</h2>
+            <p>대학교 3학년 때 교내 해커톤에서 "지역 상권 활성화 앱"을 개발하여 우수상을 수상했습니다. <span class="citation">[cite: 12]</span> 이 프로젝트에서 팀장을 맡아 5명의 팀원과 함께 48시간 동안 React Native로 모바일 앱을 완성했습니다. <span class="citation">[cite: 13]</span> 특히 백엔드 API 설계부터 프론트엔드 구현까지 전 과정에 참여하면서 풀스택 개발 경험을 쌓을 수 있었고, 짧은 시간 내에 팀원들의 역량을 파악하고 업무를 효율적으로 분배하는 리더십을 발휘했습니다. <span class="citation">[cite: 14]</span></p>
+            <p>또한 대학교 4년간 컴퓨터공학과 학회에서 활동하며 후배들에게 프로그래밍을 가르치는 멘토링을 진행했습니다. <span class="citation">[cite: 15]</span> 복잡한 개념을 쉽게 설명하는 능력을 기를 수 있었고, 이는 현재 팀 내에서 코드 리뷰와 기술 공유를 할 때 큰 도움이 되고 있습니다. <span class="citation">[cite: 16]</span></p>
+        </div>
+    </div>
+
+    <script>
+        // 스크롤 시 각 섹션이 부드럽게 나타나는 애니메이션 효과 구현
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.section');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

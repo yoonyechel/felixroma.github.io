@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>김민수 | Software Developer Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f172a;
+            --text: #94a3b8;
+            --heading: #e2e8f0;
+            --accent: #5eead4;
+            --accent-glow: rgba(94, 234, 212, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', 'Pretendard', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Mouse Glow Effect */
+        .glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: radial-gradient(600px at var(--x, 0px) var(--y, 0px), rgba(29, 78, 216, 0.15), transparent 80%);
+            z-index: 10;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            min-height: 100vh;
+            padding: 0 6rem;
+        }
+
+        /* Sidebar (Left) */
+        header {
+            position: sticky;
+            top: 0;
+            width: 40%;
+            height: 100vh;
+            padding: 6rem 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Profile Image Style */
+        .profile-container {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin-bottom: 2rem;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0.5rem;
+            filter: grayscale(100%) contrast(1.2) brightness(0.9);
+            mix-blend-mode: multiply;
+            transition: all 0.4s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background-color: var(--accent);
+            border-radius: 0.5rem;
+            transition: all 0.4s ease;
+        }
+
+        .profile-wrapper::after {
+            content: "";
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--accent);
+            border-radius: 0.5rem;
+            z-index: 1;
+            transition: all 0.2s ease;
+        }
+
+        .profile-container:hover .profile-img {
+            filter: none;
+            mix-blend-mode: normal;
+            transform: translate(-4px, -4px);
+        }
+
+        .profile-container:hover .profile-wrapper::after {
+            transform: translate(4px, 4px);
+        }
+
+        header h1 {
+            color: var(--heading);
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+        }
+
+        header h2 {
+            color: var(--heading);
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-top: 0.75rem;
+        }
+
+        header p {
+            margin-top: 1rem;
+            max-width: 300px;
+        }
+
+        nav {
+            margin-top: 2rem;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.5rem 0;
+            transition: all 0.2s;
+        }
+
+        nav a .line {
+            width: 32px;
+            height: 1px;
+            background-color: var(--text);
+            margin-right: 1rem;
+            transition: all 0.2s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--heading);
+        }
+
+        nav a:hover .line, nav a.active .line {
+            width: 64px;
+            background-color: var(--heading);
+        }
+
+        .socials {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: auto;
+        }
+
+        .socials a {
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .socials a:hover {
+            color: var(--heading);
+        }
+
+        /* Content (Right) */
+        main {
+            width: 60%;
+            padding: 6rem 0;
+        }
+
+        section {
+            margin-bottom: 8rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .about-text span.highlight {
+            color: var(--heading);
+            font-weight: 600;
+        }
+
+        /* Card Style */
+        .card {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            gap: 1rem;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            transition: all 0.2s;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .card:hover {
+            background-color: rgba(255, 255, 255, 0.03);
+            box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+        }
+
+        .card .date {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--text);
+            margin-top: 0.25rem;
+        }
+
+        .card h4 {
+            color: var(--heading);
+            font-size: 1rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .card:hover h4 {
+            color: var(--accent);
+        }
+
+        .card p {
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background-color: var(--accent-glow);
+            color: var(--accent);
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        blockquote {
+            font-size: 1.25rem;
+            color: var(--heading);
+            font-weight: 600;
+            border-left: 2px solid var(--accent);
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .container {
+                flex-direction: column;
+                padding: 0 2rem;
+            }
+            header {
+                position: relative;
+                width: 100%;
+                height: auto;
+                padding: 4rem 0 2rem;
+            }
+            main {
+                width: 100%;
+                padding-top: 0;
+            }
+            nav {
+                display: none;
+            }
+            .profile-container {
+                margin-bottom: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="glow" id="glow"></div>
+
+    <div class="container">
+        <header>
+            <div>
+                <!-- Profile Image Section -->
+                <div class="profile-container">
+                    <div class="profile-wrapper">
+                        <img src="p.png" alt="김민수 프로필" class="profile-img">
+                    </div>
+                </div>
+
+                <h1>김민수</h1>
+                <h2>Software Developer</h2>
+                <p>사용자 경험을 혁신하는 기술적 솔루션을 탐구하는 웹 개발자입니다.</p>
+                
+                <nav id="nav">
+                    <ul>
+                        <li><a href="#about" class="active"><span class="line"></span>About</a></li>
+                        <li><a href="#experience"><span class="line"></span>Experience</a></li>
+                        <li><a href="#projects"><span class="line"></span>Projects</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="socials">
+                <a href="#">Github</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">Instagram</a>
+            </div>
+        </header>
+
+        <main>
+            <section id="about" class="about-text">
+                <p>안녕하세요. <span class="highlight">사용자에게 진정한 가치</span>를 전달하고자 하는 개발자 김민수입니다. 대학교에서 컴퓨터공학을 전공하며 프로그래밍의 기초를 다졌고, 스타트업에서 2년간 웹 개발 업무를 수행하며 실무 감각을 익혔습니다.</p>
+                <p>빠르게 변화하는 IT 환경에서 <span class="highlight">새로운 기술을 학습</span>하는 것을 즐기며, 단순히 코드를 작성하는 것을 넘어 기술로 어떻게 문제를 해결하고 사용자 경험을 개선할 수 있을지 고민합니다.</p>
+                <blockquote>"기술은 사람을 위해 존재한다"</blockquote>
+                <p>성격의 장점으로 꾸준한 학습 의지와 원활한 소통 능력을 갖추고 있습니다. 완벽주의 성향으로 인해 코드 품질에 집착하기도 하지만, 이를 우선순위 관리와 협업을 통해 프로젝트의 완성도로 승화시키려 노력합니다.</p>
+            </section>
+
+            <section id="experience">
+                <div class="card">
+                    <div class="date">2022 — Present</div>
+                    <div>
+                        <h4>Web Developer · Startup A</h4>
+                        <p>스타트업의 핵심 웹 서비스 구축 및 유지보수를 담당했습니다. 사용자 피드백을 기반으로 UI/UX를 지속적으로 개선하고 시스템 안정성을 확보했습니다.</p>
+                        <div class="tags">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">React</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">AWS</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="projects">
+                <div class="card">
+                    <div class="date">2021</div>
+                    <div>
+                        <h4>지역 상권 활성화 앱 · 교내 해커톤</h4>
+                        <p>5명의 팀원과 함께 48시간 만에 완성한 프로젝트입니다. 팀장으로서 백엔드 API 설계부터 프론트엔드 구현까지 전 과정에 참여하여 우수상을 수상했습니다.</p>
+                        <div class="tags">
+                            <span class="tag">React Native</span>
+                            <span class="tag">Firebase</span>
+                            <span class="tag">Google Maps API</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="date">2020 — 2021</div>
+                    <div>
+                        <h4>컴퓨터공학과 학회 멘토</h4>
+                        <p>후배들에게 프로그래밍 기초와 웹 개발을 가르치며 복잡한 개념을 쉽게 전달하는 능력을 길렀습니다.</p>
+                        <div class="tags">
+                            <span class="tag">C/C++</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">Mentoring</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Mouse Glow Effect
+        const glow = document.getElementById('glow');
+        window.addEventListener('mousemove', (e) => {
+            glow.style.setProperty('--x', e.clientX + 'px');
+            glow.style.setProperty('--y', e.clientY + 'px');
+        });
+
+        // Scroll Spy for Navigation
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('nav a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

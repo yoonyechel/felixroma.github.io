@@ -1,0 +1,7 @@
+MCP gemini-cli: Unexpected token 'G', "[GMCPT] Usi"... is not valid JSON
+MCP gemini-cli: Unexpected token 'd', "[dotenv@17."... is not valid JSON
+MCP gemini-cli: Unexpected token 'G', "GEMINI_API"... is not valid JSON
+MCP gemini-cli: Unexpected token 'C', "Current wo"... is not valid JSON
+MCP gemini-cli: Unexpected token 'S', "Script dir"... is not valid JSON
+MCP gemini-cli: Unexpected token 'E', "Env file p"... is not valid JSON
+MCP gemini-cli: Unexpected token 'G', "[GMCPT] Gem"... is not valid JSON
